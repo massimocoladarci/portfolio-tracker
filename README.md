@@ -1,5 +1,5 @@
 # portfolio-tracker
-Foglio Google Sheets con procedure AppScript per gestire il bilanciamento e gli allarmi di portafoglio.
+Foglio Google Sheets con procedure Apps Script per gestire il bilanciamento e gli allarmi di portafoglio.
 
 ---
 
