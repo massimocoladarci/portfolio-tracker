@@ -9,6 +9,8 @@ Inserisci la liquidità da versare e calcola le quote da acquistare per allinear
 
 Questo template per Google Sheets è sviluppato come strumento matematico di supporto per gli investitori che gestiscono acquisti periodici (PAC) o ribilanciamenti tramite flussi di cassa.
 
+![Dashboard Overview](docs/preview.png)
+
 **👉 Funzionalità principali**
 
 - **Dashboard e Ribilanciamento Automatico:** inserisci la liquidità disponibile e l'algoritmo calcola esattamente quante quote acquistare per ciascun ETF per riportare il portafoglio ai pesi prefissati.
