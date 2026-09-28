@@ -38,3 +38,5 @@ _Questo template è uno strumento di calcolo matematico e organizzazione persona
 - **Fornitura "Così com'è" (AS-IS)**: Il foglio è fornito nello stato di fatto e di diritto in cui si trova, senza garanzie esplicite o implicite di funzionamento ininterrotto, assenza di errori, accuratezza dei dati di terza parti (es. API Google Finance / Yahoo) o idoneità a scopi specifici. L'autore declina espressamente ogni responsabilità per eventuali perdite economiche, danni diretti o indiretti derivanti dall'uso o dall'impossibilità d'uso dello strumento.
 
 **Progetto open / distribuito liberamente a fini didattici e di studio.**
+
+Licenza: Rilasciato sotto licenza MIT. Consulta il file `LICENSE` per i dettagli completi.
