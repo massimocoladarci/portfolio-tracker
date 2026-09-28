@@ -16,12 +16,23 @@ Questo template per Google Sheets è sviluppato come strumento matematico di sup
 - **Dashboard e Ribilanciamento Automatico:** inserisci la liquidità disponibile e l'algoritmo calcola esattamente quante quote acquistare per ciascun ETF per riportare il portafoglio ai pesi prefissati.
 - **Console Operativa Integrata:** una sidebar laterale dedicata per aggiornare i dati e registrare gli ordini generati nello storico con un solo comando.
 - **Registro Transazioni & Scalare:** archivio acquisti/vendite con calcolo automatico del Prezzo Medio di Carico (PMC) e gestione separata dei movimenti di liquidità.
-- **Prezzi Aggiornati (Yahoo Finance): r**ecupero automatico delle quotazioni correnti dei tuoi ETF e fondi tramite integrazione con Yahoo Finance, con supporto nativo agli strumenti quotati sulle borse europee (Borsa Italiana, XETRA, Euronext).
+- **Prezzi Aggiornati (Yahoo Finance):** recupero automatico delle quotazioni correnti dei tuoi ETF e fondi tramite integrazione con Yahoo Finance, con supporto nativo agli strumenti quotati sulle borse europee (Borsa Italiana, XETRA, Euronext).
 - **100% Locale, Trasparente e Sicuro:** codice Apps Script totalmente aperto e verificabile. Nessun dato lascia il tuo account Google Drive: tutto gira esclusivamente sul tuo foglio personale.
-- **Dimensionamento Realistico**: Gestione contemporanea fino a 13 posizioni ETF (+ Liquidità) con calcolo automatico dei pesi in tempo reale. Copre le esigenze di portafogli passivi diversificati mantenendo la griglia compatta e leggibile.
-- 💻 **Architettura Single-Page e Grafica Curata**: Tutte le metriche decisionali sono visibili a colpo d'occhio in un unico foglio operativo compatto, ottimizzato per essere utilizzato a schermo intero come una web application autonoma, senza navigazione tra schede multiple.
+- **Dimensionamento Realistico:** Gestione contemporanea fino a 13 posizioni ETF (+ Liquidità) con calcolo automatico dei pesi in tempo reale. Copre le esigenze di portafogli passivi diversificati mantenendo la griglia compatta e leggibile.
+- 💻 **Architettura Single-Page e Grafica Curata:** Tutte le metriche decisionali sono visibili a colpo d'occhio in un unico foglio operativo compatto, ottimizzato per essere utilizzato a schermo intero come una web application autonoma, senza navigazione tra schede multiple.
 - **Guida Rapida PDF:** istruzioni passo-passo per clonare il file sul tuo Google Drive e configurarlo in 5 minuti. [[SCARICA LA GUIDA](https://github.com/massimocoladarci/portfolio-tracker/releases/latest/download/Portfolio.Tracker.And.Rebalancing.pdf)]
 
+**👉 Dettagli Interfaccia**
+
+#### Motore di Ribilanciamento
+![Ribilanciamento](docs/preview5.png)
+
+#### Asset Allocation & Monitoraggio Allarmi
+| Allocazione & Valute | Sistema Allarmi Soglie |
+| :---: | :---: |
+| ![Allocazione](docs/preview3.png) | ![Allarmi](docs/preview4.png) |
+
+#### Registro Storico Movimenti
 ![Registro Transazioni](docs/preview2.png)
 
 **🔒 Trasparenza & Permessi**
