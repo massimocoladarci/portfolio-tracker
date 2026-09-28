@@ -35,7 +35,7 @@ _L'aggiornamento automatico dei prezzi sfrutta gli endpoint pubblici di Yahoo Fi
 _Questo template è uno strumento di calcolo matematico e organizzazione personale fornito a solo scopo didattico e informativo._
 
 - **Nessuna consulenza:** Questo strumento non costituisce né intende sostituire in alcun modo un servizio di consulenza finanziaria personalizzata, sollecitazione al pubblico risparmio o raccomandazione di investimento ai sensi della normativa vigente. Ogni scelta di allocazione e acquisto di strumenti finanziari resta sotto la totale ed esclusiva responsabilità dell'utente.
-- **Fornitura "Così com'è" (AS-IS)**: Il foglio è fornito nello stato di fatto e di diritto in cui si trova, senza garanzie esplicite o implicite di funzionamento ininterrotto, assenza di errori, accuratezza dei dati di terza parti (es. API Google Finance / Yahoo) o idoneità a scopi specifici. L'autore declina espressamente ogni responsabilità per eventuali perdite economiche, danni diretti o indiretti derivanti dall'uso o dall'impossibilità d'uso dello strumento.
+- **Fornitura "Così com'è" (AS-IS)**: Il foglio è fornito nello stato di fatto e di diritto in cui si trova, senza garanzie esplicite o implicite di funzionamento ininterrotto, assenza di errori, accuratezza dei dati di terze parti (es. API Google Finance / Yahoo) o idoneità a scopi specifici. L'autore declina espressamente ogni responsabilità per eventuali perdite economiche, danni diretti o indiretti derivanti dall'uso o dall'impossibilità d'uso dello strumento.
 
 **Progetto open / distribuito liberamente a fini didattici e di studio.**
 
