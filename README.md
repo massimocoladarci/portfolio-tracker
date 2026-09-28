@@ -22,6 +22,8 @@ Questo template per Google Sheets è sviluppato come strumento matematico di sup
 - 💻 **Architettura Single-Page e Grafica Curata**: Tutte le metriche decisionali sono visibili a colpo d'occhio in un unico foglio operativo compatto, ottimizzato per essere utilizzato a schermo intero come una web application autonoma, senza navigazione tra schede multiple.
 - **Guida Rapida PDF:** istruzioni passo-passo per clonare il file sul tuo Google Drive e configurarlo in 5 minuti. [[SCARICA LA GUIDA](https://github.com/massimocoladarci/portfolio-tracker/releases/latest/download/Portfolio.Tracker.And.Rebalancing.pdf)]
 
+![Registro Transazioni](docs/preview2.png)
+
 **🔒 Trasparenza & Permessi**
 
 _Per utilizzare l'aggiornamento automatico dei prezzi e la registrazione automatizzata tramite la Console, Google Sheets chiederà l'autorizzazione all'esecuzione degli script al primo avvio. È un passaggio standard di sicurezza di Google: il codice è interamente consultabile da te e non effettua chiamate verso server terzi. Il foglio può comunque essere utilizzato al 100% in modalità manuale, senza attivare gli script._
