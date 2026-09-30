@@ -1,5 +1,5 @@
 # Portfolio Tracker & Rebalancing
-Foglio Google Sheets con procedure Apps Script per gestire il bilanciamento e gli allarmi di portafoglio.
+Foglio Google Sheets con procedure Apps Script per gestire il ribilanciamento e gli allarmi di portafoglio.
 
 Scarica l'ultima versione: [Rilasci](https://github.com/massimocoladarci/portfolio-tracker/releases/latest)
 
