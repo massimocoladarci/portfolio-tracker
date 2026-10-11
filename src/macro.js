@@ -24,40 +24,118 @@ function aggiornaPrezzi() {
   Logger.log("<< AggiornaPrezzi - END");
 }
 
-function YAHOO_PRICE(ticker, tipo, dummy) {
-  if (!ticker) return "Ticker mancante";
+/**
+ * Valida e sanitizza il ticker prima di costruire l'URL esterno.
+ * Accetta solo formati ticker standard (es. SWDA.MI, CSSPX.PA, BTC-USD, ^GSPC).
+ * Blocca qualsiasi carattere di controllo, manipolazione di percorso o injection.
+ *
+ * @param {string} rawTicker - Valore estratto dalla cella del foglio.
+ * @returns {string|null} Ticker ripulito e validato, oppure null se non valido.
+ */
+function sanitizeTicker(rawTicker) {
+  if (!rawTicker || typeof rawTicker !== 'string') {
+    return null;
+  }
 
-  // Cache per non bombardare Yahoo se usi la stessa funzione due volte
-  var cache = CacheService.getScriptCache();
-  var cached = cache.get(ticker);
-  var data;
+  // Rimozione spazi iniziali/finali e conversione in maiuscolo
+  const cleaned = rawTicker.trim().toUpperCase();
+
+  // Caratteri ammessi:
+  // A-Z, 0-9
+  // . (separatore borsa es. .MI)
+  // - (separatore classe/coppie es. BRK-B, BTC-USD)
+  // _ (usato raramente in indici sintetici)
+  // = (forex/futures es. =X, =F)
+  // ^ (indici es. ^GSPC)
+  // $ (ticker stile indici/dollaro es. $VIX)
+  const tickerRegex = /^[A-Z0-9.\-_=^$]{1,32}$/;
+
+  if (!tickerRegex.test(cleaned)) {
+    Logger.log("Ticker bloccato da sanitizzazione: " + rawTicker);
+    return null;
+  }
+
+  if (cleaned.includes('..')) {
+    return null;
+  }
+  return cleaned;
+}
+
+/**
+ * Recupera prezzo corrente o chiusura precedente tramite API Yahoo Finance.
+ *
+ * @param {string} ticker - Simbolo del titolo (es. SWDA.MI).
+ * @param {string} tipo - "PREZZO" o "CHIUSURA".
+ * @param {any} [dummy] - Parametro opzionale per forzare il ricalcolo.
+ * @returns {number|string} Prezzo, chiusura o messaggio di stato.
+ */
+function YAHOO_PRICE(ticker, tipo, dummy) {
+  if (!ticker || typeof ticker !== 'string' || ticker.trim() === '') {
+    return "Ticker mancante";
+  }
+
+  const safeTicker = sanitizeTicker(ticker);
+  if (!safeTicker) {
+    return "Ticker non valido";
+  }
+
+  const normalizedTipo = (tipo || "").toString().trim().toUpperCase();
+  if (normalizedTipo !== "PREZZO" && normalizedTipo !== "CHIUSURA") {
+    return "Tipo errato";
+  }
+
+  // Cache per non sovraccaricare Yahoo se la funzione è chiamata su più celle
+  const cache = CacheService.getScriptCache();
+  const cached = cache.get(safeTicker);
+  let data;
 
   if (cached) {
-    data = JSON.parse(cached);
-  } else {
-    // Chiamata all'API interna di Yahoo (molto più stabile dello scraping HTML)
-    var url = "https://query1.finance.yahoo.com/v8/finance/chart/" + ticker + "?interval=1d&range=1d";
     try {
-      var response = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
-      var json = JSON.parse(response.getContentText());
-      var result = json.chart.result[0].meta;
+      data = JSON.parse(cached);
+    } catch (e) {
+      data = null;
+    }
+  }
+
+  if (!data) {
+    const url = "https://query1.finance.yahoo.com/v8/finance/chart/" + safeTicker + "?interval=1d&range=1d";
+
+    try {
+      const response = UrlFetchApp.fetch(url, {
+        muteHttpExceptions: true,
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+      });
+
+      if (response.getResponseCode() !== 200) {
+        return "Non trovato";
+      }
+
+      const json = JSON.parse(response.getContentText());
+
+      // Controllo struttura payload Yahoo
+      if (!json.chart || !json.chart.result || json.chart.result.length === 0) {
+        return "Dati non disponibili";
+      }
+
+      const result = json.chart.result[0].meta;
 
       data = {
         price: result.regularMarketPrice,
         prevClose: result.chartPreviousClose || result.previousClose
       };
 
-      // Salva in cache per 10 minuti
-      cache.put(ticker, JSON.stringify(data), 600);
+      // Salva in cache per 10 minuti (600 secondi)
+      cache.put(safeTicker, JSON.stringify(data), 600);
+
     } catch (e) {
+      Logger.log("Errore fetch per ticker " + safeTicker + ": " + e.message);
       return "Errore";
     }
   }
 
-  if (tipo === "PREZZO") return data.price;
-  if (tipo === "CHIUSURA") return data.prevClose;
-
-  return "Tipo errato";
+  return normalizedTipo === "PREZZO" ? data.price : data.prevClose;
 }
 
 function registraOperazioni() {
