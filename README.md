@@ -1,12 +1,12 @@
 # Portfolio Tracker & Rebalancing
-Foglio Google Sheets con procedure Apps Script per gestire il ribilanciamento e gli allarmi di portafoglio.
+Template Google Sheets con procedure Apps Script per gestire il ribilanciamento e gli allarmi di portafoglio.
 
 * **Codice e Template:** [Scarica l'ultima release su GitHub](https://github.com/massimocoladarci/portfolio-tracker/releases/latest)
 * **Approfondimenti tecnici:** [Diario di bordo su Substack](https://massimocoladarci.substack.com/)
 
 ---
 
-## Foglio di calcolo per il ribilanciamento del portafoglio ETF
+## Foglio di calcolo (Template) per il ribilanciamento del portafoglio ETF
 
 Inserisci la liquidità da versare e calcola le quote da acquistare per allineare il portafoglio all'asset allocation prefissata, evitando disinvestimenti non necessari.
 
@@ -22,7 +22,7 @@ Questo template per Google Sheets è sviluppato come strumento matematico di sup
 - **Prezzi Aggiornati (Yahoo Finance):** recupero automatico delle quotazioni correnti dei tuoi ETF e fondi tramite integrazione con Yahoo Finance, con supporto nativo agli strumenti quotati sulle borse europee (Borsa Italiana, XETRA, Euronext).
 - **100% Locale, Trasparente e Sicuro:** codice Apps Script totalmente aperto e verificabile. Nessun dato lascia il tuo account Google Drive: tutto gira esclusivamente sul tuo foglio personale.
 - **Dimensionamento Realistico:** gestione contemporanea fino a 13 posizioni ETF (+ Liquidità) con calcolo automatico dei pesi in tempo reale. Copre le esigenze di portafogli passivi diversificati mantenendo la griglia compatta e leggibile.
-- 💻 **Architettura Single-Page e Grafica Curata:** tutte le metriche decisionali sono visibili a colpo d'occhio in un unico foglio operativo compatto, ottimizzato per essere utilizzato a schermo intero come una web application autonoma, senza navigazione tra schede multiple.
+- 💻 **Architettura Single-Page e Grafica Curata:** tutte le metriche decisionali sono visibili a colpo d'occhio in un unica pagina operativa compatta, ottimizzata per essere utilizzata a schermo intero come una web application autonoma, senza navigazione tra schede multiple.
 - **Snapshot Storico Idempotente (Apps Script):** procedura integrata (`recordDailySnapshot`) per registrare periodicamente a mercati chiusi lo stato patrimoniale (Patrimonio Totale, Depositi, Valore Fondi) in valori statici. L'esecuzione è nativamente idempotente: i rilanci manuali aggiornano il record del giorno senza creare duplicati.
 - **Filtro Anti-Spiccioli & Vincoli di Vendita:** soglia minima per singola operazione (valore assoluto) per eliminare il micro-trading (filtro *anti-spiccioli*). Include supporto alla modalità *Buy-Only pura*.
 - **Multilingua & Temi Personalizzati:** interfaccia e intestazioni predisposte per la localizzazione in più lingue, con supporto a temi grafici personalizzabili. Tutte le funzioni sono attivabili da voce di menu o da combo di selezione preimpostata.
@@ -43,13 +43,13 @@ Questo template per Google Sheets è sviluppato come strumento matematico di sup
 
 ### 🔒 Trasparenza & Permessi
 
-Per utilizzare l'aggiornamento automatico dei prezzi e la registrazione automatizzata tramite la Console, Google Sheets chiederà l'autorizzazione all'esecuzione degli script al primo avvio. È un passaggio standard di sicurezza di Google: il codice è interamente consultabile da te e non effettua chiamate verso server terzi. Il foglio può comunque essere utilizzato al 100% in modalità manuale, senza attivare gli script.
+Per utilizzare l'aggiornamento automatico dei prezzi e la registrazione automatizzata tramite la Console, Google Sheets chiederà l'autorizzazione all'esecuzione degli script al primo avvio. È un passaggio standard di sicurezza di Google: il codice è interamente consultabile da te e non effettua chiamate verso server terzi. Il template può comunque essere utilizzato al 100% in modalità manuale, senza attivare gli script.
 
 L'aggiornamento automatico dei prezzi sfrutta gli endpoint pubblici di Yahoo Finance per garantire la copertura dei ticker europei (spesso carenti su Google Finance nativo). Non sono necessarie API key a pagamento. Trattandosi di un servizio terzo gratuito, la disponibilità e i tempi di aggiornamento dipendono dai server della piattaforma fornitrice.
 
 ### 💻 Requisiti Necessari
 
-- Un account Google (gratuito) per copiare il foglio sul tuo Google Drive ed utilizzarlo via browser.
+- Un account Google (gratuito) per copiare il template sul tuo Google Drive ed utilizzarlo via browser.
 - Connessione internet attiva per il recupero automatico delle quotazioni.
 
 ### 💬 Feedback, Supporto e Contatti
@@ -57,7 +57,7 @@ L'aggiornamento automatico dei prezzi sfrutta gli endpoint pubblici di Yahoo Fin
 Il tuo riscontro è prezioso per migliorare il progetto! Contattami per:
 * Richieste di nuove funzionalità
 * Commenti e suggerimenti
-* Domande generali sull'uso del foglio
+* Domande generali sull'uso del template
 * Segnalazione di bug o errori di calcolo
 
 
@@ -67,8 +67,8 @@ Il tuo riscontro è prezioso per migliorare il progetto! Contattami per:
 
 _Questo template è uno strumento di calcolo matematico e organizzazione personale fornito a solo scopo didattico e informativo._
 
-- **Nessuna consulenza:** Questo strumento non costituisce né intende sostituire in alcun modo un servizio di consulenza finanziaria personalizzata, sollecitazione al pubblico risparmio o raccomandazione di investimento ai sensi della normativa vigente. Ogni scelta di allocazione e acquisto di strumenti finanziari resta sotto la totale ed esclusiva responsabilità dell'utente.
-- **Fornitura "Così com'è" (AS-IS)**: Il foglio è fornito nello stato di fatto e di diritto in cui si trova, senza garanzie esplicite o implicite di funzionamento ininterrotto, assenza di errori, accuratezza dei dati di terze parti (es. API Google Finance / Yahoo) o idoneità a scopi specifici. L'autore declina espressamente ogni responsabilità per eventuali perdite economiche, danni diretti o indiretti derivanti dall'uso o dall'impossibilità d'uso dello strumento.
+- **Nessuna consulenza:** Questo strumento non costituisce né intende sostituire in alcun modo un servizio di consulenza finanziaria personalizzata, sollecitazione al pubblico risparmio o raccomandazione di investimento ai sensi della normativa vigente. Ogni scelta di allocazione e acquisto di strumenti finanziari resta sotto la totale ed esclusiva responsabilità dell'utente. Eventuali dati preimpostati o visualizzati negli screenshot di questa guida e all'interno del template sono da intendersi esclusivamente a scopo didattico e dimostrativo delle funzionalità dello strumento.
+- **Fornitura "Così com'è" (AS-IS)**: Il template è fornito nello stato di fatto e di diritto in cui si trova, senza garanzie esplicite o implicite di funzionamento ininterrotto, assenza di errori, accuratezza dei dati di terze parti (es. API Google Finance / Yahoo) o idoneità a scopi specifici. L'autore declina espressamente ogni responsabilità per eventuali perdite economiche, danni diretti o indiretti derivanti dall'uso o dall'impossibilità d'uso dello strumento.
    
 **Progetto open / distribuito liberamente a fini didattici e di studio.**
 
